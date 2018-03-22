@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <div padding-top text-center *ngIf="username">
+    <img class="pointer" [src]="profileImage" title="Upload Profile Image"
+     (click)="updateProfileImage()" alt="Reupload Image">
+    <h2>{{username}}</h2>
+    <ion-spinner style="zoom:2.0" *ngIf="loading" name="bubbles"></ion-spinner>
+
+    <ion-list inset>
+      <ion-item text-center *ngIf="userExistsMessage">
+          <ion-label color="danger">{{userExistsMessage}}</ion-label>
+        </ion-item>
+      <!-- <button ion-item (click)="updatePicture()">Update Picture</button>-->
+      <button ion-item (click)="changeUsername()">Change Username</button>
+      <button ion-item (click)="changePassword()">Change Password</button>
+      <button ion-item (click)="support()">Support</button>
+      <button ion-item (click)="logout()">Logout</button>
+    </ion-list>
+  </div>
+</ion-content>
